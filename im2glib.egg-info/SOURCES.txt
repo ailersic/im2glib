@@ -1,0 +1,14 @@
+README.rst
+setup.py
+im2glib/__init__.py
+im2glib/config.py
+im2glib/gInit.py
+im2glib/gOut.py
+im2glib/gRead.py
+im2glib/gTrc.py
+im2glib.egg-info/PKG-INFO
+im2glib.egg-info/SOURCES.txt
+im2glib.egg-info/dependency_links.txt
+im2glib.egg-info/not-zip-safe
+im2glib.egg-info/requires.txt
+im2glib.egg-info/top_level.txt
