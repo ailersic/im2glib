@@ -25,7 +25,8 @@ Example Usage::
     if im2glib.toSerial(coords): print("Done!")
     else: print("No serial device connected!")
 
-Supported input file types::
+Supported File Extensions::
+
 	jpg/jpeg
 	png
 	bmp
