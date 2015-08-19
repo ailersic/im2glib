@@ -18,7 +18,7 @@ Example Usage::
     import im2glib
 
     paths = im2glib.imToPaths("square.jpg")
-    outfile = filename.rsplit(".", 1)[0] + ".gcode" # "square.gcode"
+    outfile = "square.gcode"
     
     im2glib.toTextFile(outfile, paths)
 
