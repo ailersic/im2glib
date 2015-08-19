@@ -15,5 +15,7 @@ def imToPaths(filename):
         coords = readFromRaster(filename)
     elif filename.endswith(".dxf"):
         coords = readFromDXF(filename)
+	else:
+		coords = [[(0, 0)]]
 
     return coords
