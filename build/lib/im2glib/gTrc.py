@@ -1,17 +1,17 @@
 # Import global variables
-from im2glib.config import imdim, done, direc, smoothError
+from im2glib.config import IMDIM, SMOOTHERR, done, direc
 
 def scale(path):
     '''
     DXF files have the coordinates prewritten into it, which means they may
-    be the wrong dimension. Scale the coordinates read from the DXF to imdim.
+    be the wrong dimension. Scale the coordinates read from the DXF to IMDIM.
 
     Arguments:
         path is of type list. Contains sublists of tuples, where each tuple is
                               an (x, y) coordinate.
     '''
 
-    global imdim
+    global IMDIM
 
     # Create lists of only x coordinates and only y coordinates
     x = []
@@ -33,7 +33,7 @@ def scale(path):
     # assumed size is the maximal coordinate plus the margin
     margin = min(minx, miny)
     size = max(maxx, maxy) + margin
-    scale = imdim / size
+    scale = IMDIM / size
 
     # Once the old size is known, scale the coordinates
     for i in range(len(path)):
@@ -91,11 +91,11 @@ def smoothRasterCoords(coords):
                     canDel = True
 
                     for point in midpoints:
-                        if linePointDist(m, b, point) >= smoothError:
+                        if linePointDist(m, b, point) >= SMOOTHERR:
                             canDel = False
                             break
 
-                    # If all points between i and j are within smoothError of
+                    # If all points between i and j are within SMOOTHERR of
                     # the line, remove them
                     if canDel == True:
                         newCoords[s].append(coords[s][i])
@@ -107,11 +107,11 @@ def smoothRasterCoords(coords):
                     canDel = True
 
                     for point in midpoints:
-                        if abs(coords[s][i][0] - point[0]) >= smoothError:
+                        if abs(coords[s][i][0] - point[0]) >= SMOOTHERR:
                             canDel = False
                             break
 
-                    # If all points between i and j are within smoothError of
+                    # If all points between i and j are within SMOOTHERR of
                     # the line, remove them
                     if canDel == True:
                         newCoords[s].append(coords[s][i])
@@ -222,11 +222,11 @@ def nextShape(im):
         im is of type Image. Contains the image which is being processed.
     '''
 
-    global imdim, done
+    global IMDIM, done
     
     # Check the brightness of every point in the image
-    for x in range(imdim):
-        for y in range(imdim):
+    for x in range(IMDIM):
+        for y in range(IMDIM):
 
             # If a dark pixel is found that was not already read, return it
             if sum(im.getpixel((x, y))) < sum((127, 127, 127)) and\

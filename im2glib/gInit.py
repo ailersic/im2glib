@@ -2,7 +2,7 @@
 from PIL import Image, ImageDraw, ImageEnhance
 
 # Import global variables
-from im2glib.config import imdim, done
+from im2glib.config import IMDIM, done
 
 # Import low-level functions
 from im2glib.gTrc import nextShape, nextPixelInShape, smoothRasterCoords, scale
@@ -16,7 +16,7 @@ def initRaster(filename):
         filename is of type string. Contains name of image file.
     '''
 
-    global imdim
+    global IMDIM
     im = Image.open(filename)
 
     # Increase contrast of image
@@ -24,7 +24,7 @@ def initRaster(filename):
     im = im.enhance(2)
 
     # Resize to imdim x imdim
-    im = im.resize((imdim, imdim))
+    im = im.resize((IMDIM, IMDIM))
 
     return im
 
