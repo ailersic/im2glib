@@ -44,7 +44,7 @@ setup(
 
     keywords = 'im2glib cnc image picture raster dxf gcode g code interpreter converter',
 
-    install_requires = ['pySerial', 'pillow'],
-	packages = ['im2glib'],
+    install_requires = ['setuptools', 'pySerial', 'pillow'],
+    packages = ['im2glib'],
     zip_safe = False
 )
